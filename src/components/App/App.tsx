@@ -6,7 +6,14 @@ import MainPage from "../pages/MainPage";
 import "./app.css";
 
 const App: React.FC = () => {
-    return <LoginPage />;
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/" element={<MainPage />} />
+            </Routes>
+        </BrowserRouter>
+    );
 };
 
 export default App;
