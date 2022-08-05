@@ -1,3 +1,34 @@
 {
-    "users": []
+    "users": [
+        {
+            "email": "example@mail.ru",
+            "password": "$2a$10$pHnAUsJFpEr80HRgkKiFiOIHxX47VgDlNz09oytPP/R7CI2/iFzV6",
+            "phones": [
+                {
+                    "name": "Oleg",
+                    "phone": "+7329143244"
+                },
+                {
+                    "name": "Ivan",
+                    "phone": "+7953214244"
+                }
+            ],
+            "id": 1
+        },
+        {
+            "id": 2,
+            "email": "exampletwo@mail.ru",
+            "password": "123456",
+            "phones": [
+                {
+                    "name": "Sasha",
+                    "phone": "+9321939575"
+                },
+                {
+                    "name": "Anya",
+                    "phone": "+7231231521"
+                }
+            ]
+        }
+    ]
 }
