@@ -1,7 +1,8 @@
 export interface IUser {
     email: string;
-    password: string;
+    password?: string;
     phones: string[];
+    id: number;
 }
 
 export interface UserState {
