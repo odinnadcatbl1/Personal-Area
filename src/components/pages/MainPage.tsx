@@ -1,5 +1,7 @@
 import { Navigate } from "react-router";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import SearchForm from "../SearchForm/SearchForm";
+import PhoneList from "../PhoneList/PhoneList";
 
 const MainPage: React.FC = () => {
     const { user } = useTypedSelector((state) => state.user);
@@ -7,10 +9,14 @@ const MainPage: React.FC = () => {
     console.log(user);
 
     if (user.email) {
-        return <h1>HELLO</h1>;
+        return (
+            <div className="container">
+                <SearchForm />
+                <PhoneList />
+            </div>
+        );
     }
     return <Navigate to="/login" />;
-    //return <div>hello</div>;
 };
 
 export default MainPage;
