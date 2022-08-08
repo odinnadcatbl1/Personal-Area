@@ -6,7 +6,10 @@ export const loginUser = (user: IUser) => {
     return async (dispatch: Dispatch<LoginAction>) => {
         try {
             dispatch({ type: UserActionTypes.LOGIN_USER_REQUEST });
-            const res = await axios.post("http://localhost:3000/login", user);
+            const res = await axios.post("http://localhost:3000/login", {
+                email: user.email,
+                password: user.password,
+            });
             await dispatch({
                 type: UserActionTypes.LOGIN_USER_SUCCESS,
                 payload: res.data.user,
