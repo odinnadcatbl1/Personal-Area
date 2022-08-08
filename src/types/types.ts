@@ -15,6 +15,7 @@ export enum UserActionTypes {
     LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS",
     LOGIN_USER_FAILURE = "LOGIN_USER_FAILURE",
     LOGIN_USER_REQUEST = "LOGIN_USER_REQUEST",
+    LOGOUT_USER = "LOGOUT_USER",
 }
 
 interface RequestLoginAction {
@@ -31,7 +32,12 @@ interface FailureLoginAction {
     payload: string;
 }
 
-export type LoginAction =
+interface LogoutUserAction {
+    type: UserActionTypes.LOGOUT_USER;
+}
+
+export type LogAction =
     | RequestLoginAction
     | SuccessLoginAction
-    | FailureLoginAction;
+    | FailureLoginAction
+    | LogoutUserAction;

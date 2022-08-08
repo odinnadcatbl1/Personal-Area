@@ -1,4 +1,4 @@
-import { LoginAction, UserActionTypes } from "../../types/types";
+import { LogAction, UserActionTypes } from "../../types/types";
 import { UserState } from "../../types/types";
 
 const initialState: UserState = {
@@ -12,7 +12,10 @@ const initialState: UserState = {
     error: "",
 };
 
-export const userReducer = (state = initialState, action: LoginAction) => {
+export const userReducer = (
+    state = initialState,
+    action: LogAction
+): UserState => {
     switch (action.type) {
         case UserActionTypes.LOGIN_USER_REQUEST:
             return {
@@ -31,6 +34,8 @@ export const userReducer = (state = initialState, action: LoginAction) => {
                 loading: false,
                 error: action.payload,
             };
+        case UserActionTypes.LOGOUT_USER:
+            return initialState;
         default:
             return state;
     }
