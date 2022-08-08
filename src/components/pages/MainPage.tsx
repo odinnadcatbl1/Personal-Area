@@ -4,6 +4,8 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 const MainPage: React.FC = () => {
     const { user } = useTypedSelector((state) => state.user);
 
+    console.log(user);
+
     if (user.email) {
         return <h1>HELLO</h1>;
     }

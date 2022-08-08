@@ -3,7 +3,17 @@
         {
             "email": "example@mail.ru",
             "password": "$2a$10$L.yPEOU2mlho7rUSftsxHOaRKNYCxwRSJ9wVf5T8ceW22WnFJju7O",
-            "id": 1
+            "id": 1,
+            "phones": [
+                {
+                    "name": "Oleg",
+                    "phone": "+7329143244"
+                },
+                {
+                    "name": "Ivan",
+                    "phone": "+7953214244"
+                }
+            ]
         }
     ]
 }

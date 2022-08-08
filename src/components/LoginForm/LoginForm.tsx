@@ -2,7 +2,6 @@ import { useActions } from "../../hooks/useActios";
 import { useNavigate } from "react-router";
 import "./login-form.css";
 import { useState } from "react";
-import axios from "axios";
 
 const LoginForm: React.FC = () => {
     const { loginUser } = useActions();
@@ -12,7 +11,7 @@ const LoginForm: React.FC = () => {
 
     const onLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        loginUser({ email: email, password: password });
+        loginUser({ email: email, password: password, phones: [] });
         navigate("/");
     };
 
