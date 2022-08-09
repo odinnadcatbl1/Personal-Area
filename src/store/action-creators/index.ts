@@ -1,4 +1,4 @@
-import * as LoginActionCreator from "./login";
+import * as LoginActionCreator from "./user";
 
 export default {
     ...LoginActionCreator,
