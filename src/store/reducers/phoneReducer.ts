@@ -18,7 +18,7 @@ export const phoneReducer = (
                 ...state,
                 phones: [
                     ...state.phones.filter((phone) => {
-                        phone.number !== action.payload;
+                        return phone.number !== action.payload;
                     }),
                 ],
             };
@@ -28,7 +28,7 @@ export const phoneReducer = (
                 ...state,
                 phones: [
                     ...state.phones.filter((phone) => {
-                        phone.number !== action.payload[0];
+                        return phone.number !== action.payload[0];
                     }),
                     newPhone,
                 ],
