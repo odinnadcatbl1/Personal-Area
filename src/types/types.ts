@@ -1,10 +1,8 @@
 export interface IUser {
     email: string;
     password?: string;
-    phones: string[];
     id: number;
 }
-
 export interface UserState {
     user: IUser;
     loading: boolean;
@@ -41,3 +39,45 @@ export type LogAction =
     | SuccessLoginAction
     | FailureLoginAction
     | LogoutUserAction;
+
+export interface IPhone {
+    name: string;
+    number: string;
+}
+
+export interface PhoneState {
+    phones: IPhone[];
+}
+
+export enum PhoneActionTypes {
+    PHONE_REQUEST = "PHONE_REQUEST",
+    PHONE_DELETE = "PHONE_DELETE",
+    PHONE_ADD = "PHONE_ADD",
+    PHONE_CHANGE = "PHONE_CHANGE",
+}
+
+interface PhoneRequestAction {
+    type: PhoneActionTypes.PHONE_REQUEST;
+    payload: IPhone[];
+}
+
+interface PhoneAddAction {
+    type: PhoneActionTypes.PHONE_ADD;
+    payload: IPhone;
+}
+
+interface PhoneDeleteAction {
+    type: PhoneActionTypes.PHONE_DELETE;
+    payload: string;
+}
+
+interface PhoneChangeAction {
+    type: PhoneActionTypes.PHONE_CHANGE;
+    payload: [string, IPhone];
+}
+
+export type PhoneAction =
+    | PhoneRequestAction
+    | PhoneAddAction
+    | PhoneDeleteAction
+    | PhoneChangeAction;

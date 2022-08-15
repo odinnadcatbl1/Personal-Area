@@ -1,15 +1,27 @@
 import axios from "axios";
 import { Dispatch } from "react";
-import { IUser, LogAction, UserActionTypes } from "../../types/types";
+import {
+    IUser,
+    LogAction,
+    UserActionTypes,
+    PhoneAction,
+    PhoneActionTypes,
+    IPhone,
+} from "../../types/types";
 
 export const loginUser = (user: IUser) => {
-    return async (dispatch: Dispatch<LogAction>) => {
+    return async (dispatch: Dispatch<LogAction | PhoneAction>) => {
         try {
             dispatch({ type: UserActionTypes.LOGIN_USER_REQUEST });
             const res = await axios.post("http://localhost:3000/login", {
                 email: user.email,
                 password: user.password,
             });
+            dispatch({
+                type: PhoneActionTypes.PHONE_REQUEST,
+                payload: res.data.user.phones,
+            });
+
             dispatch({
                 type: UserActionTypes.LOGIN_USER_SUCCESS,
                 payload: res.data.user,

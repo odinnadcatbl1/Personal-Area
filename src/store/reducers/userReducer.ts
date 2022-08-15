@@ -5,7 +5,6 @@ const initialState: UserState = {
     user: {
         email: "",
         password: "",
-        phones: [],
         id: 0,
     },
     loading: true,

@@ -11,7 +11,7 @@ const LoginForm: React.FC = () => {
 
     const onLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        loginUser({ email: email, password: password, phones: [], id: 0 });
+        loginUser({ email: email, password: password, id: 0 });
         navigate("/");
     };
 
