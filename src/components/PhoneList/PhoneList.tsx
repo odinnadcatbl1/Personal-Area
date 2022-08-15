@@ -17,12 +17,12 @@ const PhoneList: React.FC = () => {
                         <td>+79372864311</td>
                         <td>
                             <div className="phone__list-actions">
-                                <div className="action action--delete">
+                                <button className="action action--delete">
                                     Удалить
-                                </div>
-                                <div className="action action--change">
+                                </button>
+                                <button className="action action--change">
                                     Изменить
-                                </div>
+                                </button>
                             </div>
                         </td>
                     </tr>
