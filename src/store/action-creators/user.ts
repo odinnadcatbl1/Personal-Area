@@ -17,6 +17,7 @@ export const loginUser = (user: IUser) => {
                 email: user.email,
                 password: user.password,
             });
+            console.log(res);
             dispatch({
                 type: PhoneActionTypes.PHONE_REQUEST,
                 payload: res.data.user.phones,
@@ -24,7 +25,7 @@ export const loginUser = (user: IUser) => {
 
             dispatch({
                 type: UserActionTypes.LOGIN_USER_SUCCESS,
-                payload: res.data.user,
+                payload: { ...res.data.user, password: user.password },
             });
         } catch (e) {
             dispatch({

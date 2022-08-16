@@ -2,8 +2,7 @@
     "users": [
         {
             "email": "example@mail.ru",
-            "password": "$2a$10$L.yPEOU2mlho7rUSftsxHOaRKNYCxwRSJ9wVf5T8ceW22WnFJju7O",
-            "id": 1,
+            "password": "$2a$10$EuEYk5UPj32AtRr/i78JWOb8mOBLRR5QwBrjPZldoUISumDBk5Z4u",
             "phones": [
                 {
                     "name": "Oleg",
@@ -13,7 +12,8 @@
                     "name": "Ivan",
                     "number": "+7953214244"
                 }
-            ]
+            ],
+            "id": 1
         }
     ]
 }
