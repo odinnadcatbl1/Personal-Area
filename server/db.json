@@ -1,19 +1,19 @@
 {
-    "users": [
+  "users": [
+    {
+      "email": "example@mail.ru",
+      "password": "$2a$10$eIa7iJpLqN/BClvxooTcj.TM2EMVsElwjhfzi6DPt/RbnVRoHUfvm",
+      "phones": [
         {
-            "email": "example@mail.ru",
-            "password": "$2a$10$EuEYk5UPj32AtRr/i78JWOb8mOBLRR5QwBrjPZldoUISumDBk5Z4u",
-            "phones": [
-                {
-                    "name": "Oleg",
-                    "number": "+7329143244"
-                },
-                {
-                    "name": "Ivan",
-                    "number": "+7953214244"
-                }
-            ],
-            "id": 1
+          "name": "Oleg",
+          "number": "+7329143244"
+        },
+        {
+          "name": "Ivan",
+          "number": "+7953214244"
         }
-    ]
+      ],
+      "id": 1
+    }
+  ]
 }

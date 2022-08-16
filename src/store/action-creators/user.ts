@@ -17,7 +17,6 @@ export const loginUser = (user: IUser) => {
                 email: user.email,
                 password: user.password,
             });
-            console.log(res);
             dispatch({
                 type: PhoneActionTypes.PHONE_REQUEST,
                 payload: res.data.user.phones,

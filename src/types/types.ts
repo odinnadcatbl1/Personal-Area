@@ -81,3 +81,9 @@ export type PhoneAction =
     | PhoneAddAction
     | PhoneDeleteAction
     | PhoneChangeAction;
+
+export interface ModalProps {
+    active: boolean;
+    setActive: React.Dispatch<React.SetStateAction<boolean>>;
+    children: React.ReactNode;
+}
