@@ -2,27 +2,37 @@
   "users": [
     {
       "email": "example@mail.ru",
-      "password": "$2a$10$3eSwzUlXABzjdDhNvcMOcu/Ca1HXho03u6Vm1mfZaDhgM6PUHbRZW",
+      "password": "$2a$10$AGUp7QCggmVbeVOGY8.xhupJ2HIp17aeLNhbCb1BQXwa2RQ0FIC1q",
       "phones": [
         {
-          "name": "Oleg",
-          "number": "+7329143244"
-        },
-        {
+          "id": "1",
           "name": "Ivan",
           "number": "+7953214284"
         },
         {
+          "id": "2",
           "name": "Sasha",
           "number": "+9321939575"
         },
         {
+          "id": "3",
           "name": "Anya",
           "number": "+7231231521"
         },
         {
+          "id": "4",
+          "name": "Oleg",
+          "number": "+7329143244"
+        },
+        {
+          "id": "5",
+          "name": "Salavat",
+          "number": "9393924"
+        },
+        {
+          "id": "ph182a7f57cdc",
           "name": "Проверка",
-          "number": "+79321772132"
+          "number": "+7383821747"
         }
       ],
       "id": 1

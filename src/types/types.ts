@@ -41,6 +41,7 @@ export type LogAction =
     | LogoutUserAction;
 
 export interface IPhone {
+    id: string;
     name: string;
     number: string;
 }
@@ -73,7 +74,7 @@ interface PhoneDeleteAction {
 
 interface PhoneChangeAction {
     type: PhoneActionTypes.PHONE_CHANGE;
-    payload: [string, IPhone];
+    payload: IPhone;
 }
 
 export type PhoneAction =

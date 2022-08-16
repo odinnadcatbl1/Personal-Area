@@ -1,4 +1,4 @@
-import { IPhone, PhoneActionTypes, PhoneAction } from "../../types/types";
+import { IPhone, PhoneActionTypes } from "../../types/types";
 
 export const addPhone = (phone: IPhone) => {
     return {
@@ -7,16 +7,16 @@ export const addPhone = (phone: IPhone) => {
     };
 };
 
-export const deletePhone = (number: string) => {
+export const deletePhone = (id: string) => {
     return {
         type: PhoneActionTypes.PHONE_DELETE,
-        payload: number,
+        payload: id,
     };
 };
 
 export const changePhone = (phone: IPhone) => {
     return {
         type: PhoneActionTypes.PHONE_CHANGE,
-        payload: [phone.number, phone],
+        payload: phone,
     };
 };

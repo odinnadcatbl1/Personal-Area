@@ -12,23 +12,25 @@ export const phoneReducer = (
         case PhoneActionTypes.PHONE_REQUEST:
             return { phones: action.payload };
         case PhoneActionTypes.PHONE_ADD:
+            console.log(action.payload);
             return { ...state, phones: [...state.phones, action.payload] };
         case PhoneActionTypes.PHONE_DELETE:
             return {
                 ...state,
                 phones: [
                     ...state.phones.filter((phone) => {
-                        return phone.number !== action.payload;
+                        return phone.id !== action.payload;
                     }),
                 ],
             };
         case PhoneActionTypes.PHONE_CHANGE:
-            const newPhone = action.payload[1];
+            const newPhone = action.payload;
+            console.log(newPhone);
             return {
                 ...state,
                 phones: [
                     ...state.phones.filter((phone) => {
-                        return phone.number !== action.payload[0];
+                        return phone.id !== newPhone.id;
                     }),
                     newPhone,
                 ],

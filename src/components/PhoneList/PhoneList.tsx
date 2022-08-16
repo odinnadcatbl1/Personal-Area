@@ -2,6 +2,8 @@ import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { changePhone } from "../../store/action-creators/phone";
+import { IPhone } from "../../types/types";
 import Modal from "../Modal/Modal";
 import "./phone-list.css";
 
@@ -9,22 +11,53 @@ const PhoneList: React.FC = () => {
     const { phones } = useTypedSelector((state) => state.phone);
     const { user } = useTypedSelector((state) => state.user);
 
-    const { deletePhone, addPhone } = useActions();
+    const { deletePhone, addPhone, changePhone } = useActions();
 
     const [addModalActive, setAddModalActive] = useState(false);
+    const [changedContact, setChangedContact] = useState<IPhone>({
+        id: "",
+        name: "",
+        number: "",
+    });
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
 
-    const onAddContact = (): void => {
-        if (name && number) {
-            addPhone({ name, number });
-            setAddModalActive(false);
-        }
+    const onDelete = useCallback((id: string) => {
+        deletePhone(id);
+    }, []);
+
+    const onAddOpened = (): void => {
+        setChangedContact({ id: "", name: "", number: "" });
+        setAddModalActive(true);
     };
 
-    const onDelete = useCallback((number: string) => {
-        deletePhone(number);
+    const onChangeOpened = useCallback((contact: IPhone) => {
+        setAddModalActive(true);
+        setChangedContact(contact);
+        setName(contact.name);
+        setNumber(contact.number);
     }, []);
+
+    const onSaveContact = (): void => {
+        if (name && number) {
+            if (changedContact.id !== "") {
+                changePhone({
+                    id: changedContact.id,
+                    name: name,
+                    number: number,
+                });
+                setChangedContact({ id: "", name: "", number: "" });
+                setAddModalActive(false);
+            } else {
+                addPhone({
+                    id: `ph${(+new Date()).toString(16)}`,
+                    name: name,
+                    number: number,
+                });
+                setAddModalActive(false);
+            }
+        }
+    };
 
     useEffect(() => {
         setName("");
@@ -41,10 +74,7 @@ const PhoneList: React.FC = () => {
 
     return (
         <>
-            <button
-                className="phone__add-button"
-                onClick={() => setAddModalActive(true)}
-            >
+            <button className="phone__add-button" onClick={() => onAddOpened()}>
                 Добавить контакт
             </button>
             <div className="phone__list">
@@ -60,7 +90,7 @@ const PhoneList: React.FC = () => {
                         {phones.length > 0 &&
                             phones.map((phone) => {
                                 return (
-                                    <tr key={phone.number + phone.name}>
+                                    <tr key={phone.id}>
                                         <td>{phone.name}</td>
                                         <td>{phone.number}</td>
                                         <td>
@@ -68,12 +98,17 @@ const PhoneList: React.FC = () => {
                                                 <button
                                                     className="action action--delete"
                                                     onClick={() =>
-                                                        onDelete(phone.number)
+                                                        onDelete(phone.id)
                                                     }
                                                 >
                                                     Удалить
                                                 </button>
-                                                <button className="action action--change">
+                                                <button
+                                                    className="action action--change"
+                                                    onClick={() =>
+                                                        onChangeOpened(phone)
+                                                    }
+                                                >
                                                     Изменить
                                                 </button>
                                             </div>
@@ -110,7 +145,7 @@ const PhoneList: React.FC = () => {
                         <button
                             type="button"
                             className="actions__btn add"
-                            onClick={() => onAddContact()}
+                            onClick={() => onSaveContact()}
                         >
                             Сохранить
                         </button>
