@@ -9,13 +9,27 @@ const PhoneList: React.FC = () => {
     const { phones } = useTypedSelector((state) => state.phone);
     const { user } = useTypedSelector((state) => state.user);
 
-    const { deletePhone } = useActions();
+    const { deletePhone, addPhone } = useActions();
 
-    const [addModalActive, setAddModalActive] = useState(true);
+    const [addModalActive, setAddModalActive] = useState(false);
+    const [name, setName] = useState("");
+    const [number, setNumber] = useState("");
+
+    const onAddContact = (): void => {
+        if (name && number) {
+            addPhone({ name, number });
+            setAddModalActive(false);
+        }
+    };
 
     const onDelete = useCallback((number: string) => {
         deletePhone(number);
     }, []);
+
+    useEffect(() => {
+        setName("");
+        setNumber("");
+    }, [addModalActive]);
 
     useEffect(() => {
         axios.put(`http://localhost:3000/users/${user.id}`, {
@@ -46,7 +60,7 @@ const PhoneList: React.FC = () => {
                         {phones.length > 0 &&
                             phones.map((phone) => {
                                 return (
-                                    <tr key={phone.number}>
+                                    <tr key={phone.number + phone.name}>
                                         <td>{phone.name}</td>
                                         <td>{phone.number}</td>
                                         <td>
@@ -76,7 +90,39 @@ const PhoneList: React.FC = () => {
                 </table>
             </div>
             <Modal active={addModalActive} setActive={setAddModalActive}>
-                <h1>hello</h1>
+                <form className="add__form">
+                    <input
+                        type="text"
+                        className="add__form-input"
+                        placeholder="Имя.."
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        className="add__form-input"
+                        placeholder="Номер телефона.."
+                        value={number}
+                        onChange={(e) => setNumber(e.target.value)}
+                    />
+
+                    <div className="add__form-actions">
+                        <button
+                            type="button"
+                            className="actions__btn add"
+                            onClick={() => onAddContact()}
+                        >
+                            Сохранить
+                        </button>
+                        <button
+                            type="button"
+                            className="actions__btn cancel"
+                            onClick={() => setAddModalActive(false)}
+                        >
+                            Отменить
+                        </button>
+                    </div>
+                </form>
             </Modal>
         </>
     );

@@ -2,33 +2,26 @@
     "users": [
         {
             "email": "example@mail.ru",
-            "password": "123456",
+            "password": "$2a$10$QQRt.VTLb/e28OtcPIfiX.5emIlzK4X25NLJO/wpRcpvnIXDVrXAS",
             "phones": [
                 {
                     "name": "Oleg",
-                    "phone": "+7329143244"
+                    "number": "+7329143244"
                 },
                 {
                     "name": "Ivan",
-                    "phone": "+7953214244"
-                }
-            ],
-            "id": 1
-        },
-        {
-            "id": 2,
-            "email": "exampletwo@mail.ru",
-            "password": "qwerty",
-            "phones": [
+                    "number": "+7953214284"
+                },
                 {
                     "name": "Sasha",
-                    "phone": "+9321939575"
+                    "number": "+9321939575"
                 },
                 {
                     "name": "Anya",
-                    "phone": "+7231231521"
+                    "number": "+7231231521"
                 }
-            ]
+            ],
+            "id": 1
         }
     ]
 }
