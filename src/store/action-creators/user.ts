@@ -6,7 +6,6 @@ import {
     UserActionTypes,
     PhoneAction,
     PhoneActionTypes,
-    IPhone,
 } from "../../types/types";
 
 export const loginUser = (user: IUser) => {

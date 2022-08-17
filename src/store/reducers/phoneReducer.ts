@@ -12,7 +12,6 @@ export const phoneReducer = (
         case PhoneActionTypes.PHONE_REQUEST:
             return { phones: action.payload };
         case PhoneActionTypes.PHONE_ADD:
-            console.log(action.payload);
             return { ...state, phones: [...state.phones, action.payload] };
         case PhoneActionTypes.PHONE_DELETE:
             return {
@@ -25,7 +24,6 @@ export const phoneReducer = (
             };
         case PhoneActionTypes.PHONE_CHANGE:
             const newPhone = action.payload;
-            console.log(newPhone);
             return {
                 ...state,
                 phones: [

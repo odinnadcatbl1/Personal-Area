@@ -1,36 +1,31 @@
 {
-  "users": [
-    {
-      "email": "example@mail.ru",
-      "password": "$2a$10$2u/py8vEZmwM3yjQ8hY2suX4GfAL.VKrUpFppMcqwMl6NzetW8dFW",
-      "phones": [
+    "users": [
         {
-          "id": "1",
-          "name": "Ivan",
-          "number": "+7953214284"
-        },
-        {
-          "id": "2",
-          "name": "Sasha",
-          "number": "+9321939575"
-        },
-        {
-          "id": "3",
-          "name": "Anya",
-          "number": "+7231231521"
-        },
-        {
-          "id": "4",
-          "name": "Oleg",
-          "number": "+7329143244"
-        },
-        {
-          "id": "ph182aaadf7a0",
-          "name": "Salavatik",
-          "number": "+79372864311"
+            "email": "example@mail.ru",
+            "password": "$2a$10$2u/py8vEZmwM3yjQ8hY2suX4GfAL.VKrUpFppMcqwMl6NzetW8dFW",
+            "phones": [
+                {
+                    "id": "1",
+                    "name": "Ivan",
+                    "number": "+7953214284"
+                },
+                {
+                    "id": "2",
+                    "name": "Sasha",
+                    "number": "+9321939575"
+                },
+                {
+                    "id": "3",
+                    "name": "Anya",
+                    "number": "+7231231521"
+                },
+                {
+                    "id": "4",
+                    "name": "Oleg",
+                    "number": "+7329143244"
+                }
+            ],
+            "id": 1
         }
-      ],
-      "id": 1
-    }
-  ]
+    ]
 }
