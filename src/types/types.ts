@@ -1,3 +1,5 @@
+import React, { ReactFragment } from "react";
+
 export interface IUser {
     email: string;
     password?: string;
@@ -87,4 +89,9 @@ export interface ModalProps {
     active: boolean;
     setActive: React.Dispatch<React.SetStateAction<boolean>>;
     children: React.ReactNode;
+}
+
+export interface SearchFormProps {
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    value: string;
 }

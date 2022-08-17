@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { changePhone } from "../../store/action-creators/phone";
+import SearchForm from "../SearchForm/SearchForm";
 import { IPhone } from "../../types/types";
 import Modal from "../Modal/Modal";
+
 import "./phone-list.css";
 
 const PhoneList: React.FC = () => {
@@ -13,6 +14,8 @@ const PhoneList: React.FC = () => {
 
     const { deletePhone, addPhone, changePhone } = useActions();
 
+    const [searchWord, setSearchWord] = useState("");
+    const [filteredContacts, setFilteredContacts] = useState(phones);
     const [addModalActive, setAddModalActive] = useState(false);
     const [changedContact, setChangedContact] = useState<IPhone>({
         id: "",
@@ -21,6 +24,20 @@ const PhoneList: React.FC = () => {
     });
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
+
+    const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchWord(e.target.value);
+        setFilteredContacts(
+            phones.filter((phone) => {
+                return (
+                    phone.name.includes(e.target.value) ||
+                    phone.number.includes(e.target.value)
+                );
+            })
+        );
+
+        console.log(phones[0].name.includes(e.target.value));
+    };
 
     const onDelete = useCallback((id: string) => {
         deletePhone(id);
@@ -74,6 +91,7 @@ const PhoneList: React.FC = () => {
 
     return (
         <>
+            <SearchForm onChange={onSearchChange} value={searchWord} />
             <button className="phone__add-button" onClick={() => onAddOpened()}>
                 Добавить контакт
             </button>
@@ -87,8 +105,8 @@ const PhoneList: React.FC = () => {
                         </tr>
                     </thead>
                     <tbody className="table__body">
-                        {phones.length > 0 &&
-                            phones.map((phone) => {
+                        {filteredContacts.length > 0 &&
+                            filteredContacts.map((phone) => {
                                 return (
                                     <tr key={phone.id}>
                                         <td>{phone.name}</td>
@@ -116,7 +134,7 @@ const PhoneList: React.FC = () => {
                                     </tr>
                                 );
                             })}
-                        {!phones.length && (
+                        {!filteredContacts.length && (
                             <tr>
                                 <td>Список пуст</td>
                             </tr>

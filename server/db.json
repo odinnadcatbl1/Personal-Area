@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "example@mail.ru",
-      "password": "$2a$10$AGUp7QCggmVbeVOGY8.xhupJ2HIp17aeLNhbCb1BQXwa2RQ0FIC1q",
+      "password": "$2a$10$Bnmbh2c68aRpeEeXgyTotecwn0ld8nKBhCR5oD819XG/7I3gz0rS6",
       "phones": [
         {
           "id": "1",
@@ -25,14 +25,9 @@
           "number": "+7329143244"
         },
         {
-          "id": "5",
-          "name": "Salavat",
-          "number": "9393924"
-        },
-        {
-          "id": "ph182a7f57cdc",
-          "name": "Проверка",
-          "number": "+7383821747"
+          "id": "ph182aaadf7a0",
+          "name": "Salavatik",
+          "number": "+79372864311"
         }
       ],
       "id": 1

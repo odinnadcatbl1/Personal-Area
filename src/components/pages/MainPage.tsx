@@ -1,6 +1,5 @@
 import { Navigate } from "react-router";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import SearchForm from "../SearchForm/SearchForm";
 import PhoneList from "../PhoneList/PhoneList";
 import Header from "../Header/Header";
 
@@ -11,7 +10,6 @@ const MainPage: React.FC = () => {
         return (
             <div className="container">
                 <Header />
-                <SearchForm />
                 <PhoneList />
             </div>
         );
