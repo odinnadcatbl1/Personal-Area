@@ -35,8 +35,6 @@ const PhoneList: React.FC = () => {
                 );
             })
         );
-
-        console.log(phones[0].name.includes(e.target.value));
     };
 
     const onDelete = useCallback((id: string) => {
